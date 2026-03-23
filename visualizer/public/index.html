@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>GitHub Mining Visualizer</title>
+    <link rel="stylesheet" href="/styles.css" />
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.2/dist/chart.umd.min.js" defer></script>
+    <script src="/app.js" defer></script>
+  </head>
+  <body>
+    <main class="container">
+      <header>
+        <h1>GitHub Mining Visualizer</h1>
+        <p>
+          Ranking en tiempo real de palabras en nombres de funciones y métodos (Python/Java) minados por el
+          componente <strong>miner</strong>.
+        </p>
+      </header>
+
+      <section class="controls card">
+        <div class="control-group">
+          <label for="scopeSelect">Scope</label>
+          <select id="scopeSelect">
+            <option value="global">Global</option>
+            <option value="python">Python</option>
+            <option value="java">Java</option>
+          </select>
+        </div>
+
+        <div class="control-group">
+          <label for="topInput">Top-N</label>
+          <input id="topInput" type="number" min="1" max="200" step="1" value="10" />
+        </div>
+
+        <div class="connection-pill">
+          Estado SSE: <span id="connectionStatus" class="disconnected">Desconectado</span>
+        </div>
+      </section>
+
+      <section class="card">
+        <canvas id="rankingChart"></canvas>
+      </section>
+
+      <section class="metrics card">
+        <h2>Métricas acumuladas</h2>
+        <div class="grid">
+          <div><span>Repos procesados</span><strong id="mRepos">0</strong></div>
+          <div><span>Archivos procesados</span><strong id="mFiles">0</strong></div>
+          <div><span>Funciones encontradas</span><strong id="mFunctions">0</strong></div>
+          <div><span>Palabras distintas (global)</span><strong id="mDistinct">0</strong></div>
+          <div><span>Último repo</span><strong id="mLastRepo">-</strong></div>
+          <div><span>Última actualización</span><strong id="mLastUpdate">-</strong></div>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>
