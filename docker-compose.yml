@@ -1,0 +1,29 @@
+services:
+  visualizer:
+    build:
+      context: ./visualizer
+    container_name: visualizer
+    ports:
+      - "3000:3000"
+    environment:
+      PORT: ${PORT:-3000}
+      DEFAULT_TOP_N: ${DEFAULT_TOP_N:-10}
+
+  miner:
+    build:
+      context: ./miner
+    container_name: miner
+    depends_on:
+      - visualizer
+    environment:
+      GITHUB_TOKEN: ${GITHUB_TOKEN:-}
+      VISUALIZER_URL: ${VISUALIZER_URL:-http://visualizer:3000/events}
+      STATE_DIR: ${STATE_DIR:-/data}
+      MIN_STARS: ${MIN_STARS:-1000}
+      MAX_REPOS_PER_RUN: ${MAX_REPOS_PER_RUN:-20}
+      BATCH_SLEEP_SECONDS: ${BATCH_SLEEP_SECONDS:-5}
+      MAX_FILE_SIZE_BYTES: ${MAX_FILE_SIZE_BYTES:-250000}
+      LOG_LEVEL: ${LOG_LEVEL:-INFO}
+    volumes:
+      - ./data:/data
+    restart: unless-stopped

@@ -1,0 +1,105 @@
+:root {
+  color-scheme: light;
+  font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+}
+
+body {
+  margin: 0;
+  background: #f4f6f9;
+  color: #1c2430;
+}
+
+.container {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 24px;
+  display: grid;
+  gap: 16px;
+}
+
+header h1 {
+  margin: 0 0 6px;
+}
+
+header p {
+  margin: 0;
+  color: #3f4a5a;
+}
+
+.card {
+  background: #fff;
+  border-radius: 10px;
+  padding: 16px;
+  box-shadow: 0 2px 8px rgba(15, 23, 42, 0.06);
+}
+
+.controls {
+  display: flex;
+  align-items: end;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+
+.control-group {
+  display: grid;
+  gap: 6px;
+}
+
+.control-group label {
+  font-weight: 600;
+}
+
+select,
+input {
+  border: 1px solid #d4d9e1;
+  border-radius: 8px;
+  padding: 8px 10px;
+  font-size: 14px;
+}
+
+.connection-pill {
+  margin-left: auto;
+  padding: 8px 12px;
+  border-radius: 999px;
+  background: #eef2f8;
+  font-size: 14px;
+}
+
+.connected {
+  color: #0f8a2f;
+  font-weight: 700;
+}
+
+.disconnected {
+  color: #be4b49;
+  font-weight: 700;
+}
+
+#rankingChart {
+  width: 100%;
+  height: 420px !important;
+}
+
+.metrics .grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 12px;
+}
+
+.metrics .grid div {
+  background: #f8fafc;
+  border: 1px solid #e7ebf0;
+  border-radius: 8px;
+  padding: 10px;
+  display: grid;
+  gap: 6px;
+}
+
+.metrics .grid span {
+  color: #5a6575;
+  font-size: 13px;
+}
+
+.metrics .grid strong {
+  font-size: 17px;
+}
